@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-using DattingApp.API.Data;
+using DatingApp.API.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace DattingApp.API
