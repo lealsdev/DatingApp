@@ -27,7 +27,7 @@ namespace DattingApp.API
                 catch(Exception ex)
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
-                    logger.LogError(ex, "An error ocurred during migration");
+                    logger.LogError(ex, "An error ocurred during migration"); 
                 }
             }
         }
