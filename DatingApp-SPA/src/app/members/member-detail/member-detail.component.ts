@@ -19,10 +19,12 @@ export class MemberDetailComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadUser();
+    this.route.data.subscribe(data => {
+      this.user = data['user'];
+    });
   }
 
-  loadUser() {
+  /*loadUser() {
     // tslint:disable-next-line: no-string-literal
     this.userService.getUser(this.route.snapshot.params['id']).subscribe(
       (user: User) => {
@@ -32,6 +34,6 @@ export class MemberDetailComponent implements OnInit {
         this.alertify.error(error);
       }
     );
-  }
+  }*/
 
 }
