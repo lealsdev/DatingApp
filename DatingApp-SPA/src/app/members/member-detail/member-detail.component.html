@@ -50,7 +50,7 @@
             <p>{{user.interests}}</p>
           </tab>
           <tab heading="Photos">            
-            <p>Photos will go here</p>
+            <img *ngFor="let photo of user.photos" class="mr-1 mb-1" src="{{photo.url}}" alt="{{photo.description}}">
           </tab>
           <tab heading="Messages">
             <p>Messages will go here</p>
