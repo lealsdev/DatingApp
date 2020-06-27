@@ -11,20 +11,24 @@ export class UserService {
 
   baseurl = environment.apiUrl;
 
+  /*
   httpOptions = {
     headers: new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('token')
     })
   };
+  */
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.baseurl + 'users', this.httpOptions);
+    // return this.http.get<User[]>(this.baseurl + 'users', this.httpOptions);
+    return this.http.get<User[]>(this.baseurl + 'users');
   }
 
   getUser(id: number): Observable<User> {
-    return this.http.get<User>(this.baseurl + 'users/' + id, this.httpOptions);
+    // return this.http.get<User>(this.baseurl + 'users/' + id, this.httpOptions);
+    return this.http.get<User>(this.baseurl + 'users/' + id);
   }
 
 }
