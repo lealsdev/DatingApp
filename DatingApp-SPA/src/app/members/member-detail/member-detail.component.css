@@ -13,3 +13,8 @@
     background-color: #fff;
     border-top: none;
 }
+
+.photos-from-list {
+    width:150px;
+    height:150px
+}
