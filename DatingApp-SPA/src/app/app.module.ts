@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { JwtModule } from '@auth0/angular-jwt';
 
+import { FileUploadModule } from 'ng2-file-upload';
+
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
 import { NavComponent } from './nav/nav.component';
@@ -57,6 +59,7 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
+      FileUploadModule,
       JwtModule.forRoot({
          config: {
             tokenGetter: tokenGetter,
