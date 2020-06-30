@@ -14,5 +14,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.setDecodedToken();
-  }
+    this.authService.setCurrentUser();
+  }  
 }
