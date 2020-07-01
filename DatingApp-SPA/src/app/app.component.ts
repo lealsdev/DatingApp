@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './_services/auth.service';
+import { User } from './_models/user';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { AuthService } from './_services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
+
   title = 'DatingApp-SPA';
 
   constructor(private authService: AuthService) {}
@@ -15,5 +16,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.authService.setDecodedToken();
     this.authService.setCurrentUser();
-  }  
+
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    this.authService.changeMemberPhoto(user.photoUrl);
+  }
 }
