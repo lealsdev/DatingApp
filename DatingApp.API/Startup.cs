@@ -44,6 +44,7 @@ namespace DattingApp.API
 
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IDatingRepository, DatingRepository>();
+            services.AddScoped<LogUserActivity>();
 
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
 
