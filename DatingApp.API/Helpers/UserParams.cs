@@ -23,7 +23,7 @@ namespace DatingApp.API.Helpers
 
         public int UserId { get; set; }
 
-        public string Gender { get; set; } = "female";
+        public string Gender { get; set; } = "male";
 
         public int MinAge { get; set; } = 18;
 
