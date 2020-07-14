@@ -35,10 +35,24 @@ export class UserService {
       params = params.append('pageSize', itemsPerPage);
     }
 
-    if (userParams) {
+    if (userParams.userId) {
+      params = params.append('userId', userParams.userId);
+    }
+
+    if (userParams.minAge) {
       params = params.append('minAge', userParams.minAge);
+    }
+
+    if (userParams.maxAge) {
       params = params.append('maxAge', userParams.maxAge);
+    }
+
+    if (userParams.gender) {
       params = params.append('gender', userParams.gender);
+    }
+
+    if (userParams.orderBy) {
+      params = params.append('orderBy', userParams.orderBy);
     }
 
     return this.http.get<User[]>(this.baseurl + 'users', { observe: 'response', params })
