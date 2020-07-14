@@ -12,6 +12,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeagoModule } from 'ngx-timeago';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { AppComponent } from './app.component';
 import { ValueComponent } from './value/value.component';
@@ -64,6 +65,7 @@ export function tokenGetter() {
       BsDropdownModule.forRoot(),
       BsDatepickerModule.forRoot(),
       PaginationModule.forRoot(),
+      ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       FileUploadModule,
