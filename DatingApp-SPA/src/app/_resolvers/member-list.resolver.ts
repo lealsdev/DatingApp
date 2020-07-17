@@ -24,8 +24,6 @@ export class MemberListResolver implements Resolve<User[]> {
             userId: this.authService.currentUser.id
         };
 
-        console.log(userParams);
-
         return this.userService.getUsers(this.pageNumber, this.pageSize, userParams).pipe(
             catchError(error => {
                 this.alertify.error('problem retrieving data');
