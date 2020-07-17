@@ -27,6 +27,8 @@ export class UserService {
     // return this.http.get<User[]>(this.baseurl + 'users', this.httpOptions);
     //return this.http.get<User[]>(this.baseurl + 'users');
 
+    console.log(userParams.userId);
+
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
     let params = new HttpParams();
 
@@ -67,7 +69,7 @@ export class UserService {
       .pipe(
         map(response => {
           paginatedResult.result = response.body;
-          console.log(response);
+
           if (response.headers.get('Pagination') != null) {
             paginatedResult.pagination = JSON.parse(response.headers.get('Pagination'));
           }
