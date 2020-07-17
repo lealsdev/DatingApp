@@ -40,17 +40,19 @@ namespace DatingApp.API.Data
 
             users = users.Where(u => u.Id != userParams.UserId);
 
-            users = users.Where(u => u.Gender == userParams.Gender);
+            if(!userParams.Likers && !userParams.Likees)
+                users = users.Where(u => u.Gender == userParams.Gender);
+
             if(userParams.Likers)
             {
                 var userLikers = await GetUserLikes(userParams.UserId, userParams.Likers);
-                users = users.Where(u => userLikers.Contains(u.Id));
+                users = users.Include(u => u.Likers).Where(u => userLikers.Contains(u.Id));
             }
 
             if(userParams.Likees)
             {
-                var userLikees = await GetUserLikes(userParams.UserId, userParams.Likees);
-                users = users.Where(u => userLikees.Contains(u.Id));
+                var userLikees = await GetUserLikes(userParams.UserId, userParams.Likers);
+                users = users.Include(u => u.Likees).Where(u => userLikees.Contains(u.Id));
             }
 
             if(userParams.MinAge != 18 || userParams.MaxAge != 99)
@@ -90,7 +92,7 @@ namespace DatingApp.API.Data
             }
             else
             {
-                return user.Likers.Where(u => u.LikerId == id).Select(i => i.LikeeId);
+                return user.Likees.Where(u => u.LikerId == id).Select(i => i.LikeeId);
             }
         }
 
